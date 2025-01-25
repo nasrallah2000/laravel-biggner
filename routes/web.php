@@ -12,8 +12,18 @@ use Illuminate\Support\Facades\Route;
 // Route::options('url','action'); مسؤول عن عرض الاخطاء المناسبة
 
 Route::get('/', function () {
-    return "Home Page";
+    $link= route('About-Us');
+    return "<a href = '$link'>About Us<a>";
 });
+Route::get('/about-me', function () {
+    return "This is About me Page";
+})->name('About-Us');
+
+
 Route::get('/contact-us', function () {
     return "Contact Us";
+});
+
+Route::get('/course/{name}/{type?}', function ($name, $type = "online") {
+    return 'Course Name : ' . $name . ' & Type : ' . $type;
 });

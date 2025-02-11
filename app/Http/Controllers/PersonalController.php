@@ -12,6 +12,22 @@ class PersonalController extends Controller
         return view('personal.index');
     }
 
+    public function resume()
+    {
+        return view('personal.resume');
+    }
+
+    public function projects()
+    {
+        return view('personal.projects');
+    }
+
+    public function contant()
+    {
+        return view('personal.contact');
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */

@@ -60,6 +60,9 @@ use App\Http\Controllers\ProductController;
 // Route::resource('categories', CategoryController::class);
 
 
+// Send data between pages///
+
+Route::get('user/{name}/{age}', [MainController::class, 'user'])->name('user.profile');
 
 ////////////////////// Personal Site ////////////////////
 Route::prefix('personal')->name('personal.')->group(function () {

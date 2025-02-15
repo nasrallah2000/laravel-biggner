@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
@@ -73,6 +74,16 @@ Route::prefix('personal')->name('personal.')->group(function () {
     Route::get('/contact', [PersonalController::class, 'contact'])->name('contact');
     Route::post('/contant', [PersonalController::class, 'contant-data'])->name('contant-data');
 });
+
+////////////////////// Blog Site ////////////////////
+
+Route::prefix('blog')->name('blog.')->group(function () {
+    Route::get('/', [BlogController::class, 'index'])->name('index');
+    Route::get('about', [BlogController::class, 'about'])->name('about');
+    Route::get('contact', [BlogController::class, 'contact'])->name('contact');
+    Route::get('post', [BlogController::class, 'post'])->name('post');
+});
+
 
 
 

@@ -22,7 +22,7 @@ class PersonalController extends Controller
         return view('personal.projects');
     }
 
-    public function contant()
+    public function contact()
     {
         return view('personal.contact');
     }

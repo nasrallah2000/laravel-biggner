@@ -62,15 +62,13 @@ use App\Http\Controllers\ProductController;
 
 
 ////////////////////// Personal Site ////////////////////
-Route::prefix('personal')->name('personal.')->group(function(){
+Route::prefix('personal')->name('personal.')->group(function () {
 
-Route::get('/',[PersonalController::class,'index'])->name('index');
-Route::get('/resume',[PersonalController::class,'resume'])->name('resume');
-Route::get('/projects',[PersonalController::class,'projects'])->name('projects');
-Route::get('/contant',[PersonalController::class,'contant'])->name('contant');
-Route::post('/contant',[PersonalController::class,'contant-data'])->name('contant-data');
-
-
+    Route::get('/', [PersonalController::class, 'index'])->name('index');
+    Route::get('/resume', [PersonalController::class, 'resume'])->name('resume');
+    Route::get('/projects', [PersonalController::class, 'projects'])->name('projects');
+    Route::get('/contact', [PersonalController::class, 'contact'])->name('contact');
+    Route::post('/contant', [PersonalController::class, 'contant-data'])->name('contant-data');
 });
 
 

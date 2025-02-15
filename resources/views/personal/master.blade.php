@@ -36,8 +36,8 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                         <li class="nav-item"><a class="nav-link" href="{{ route('personal.index') }}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('personal.resume') }}">Resume</a></li>
-                        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('personal.projects') }}">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('personal.contact') }}">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -52,7 +52,7 @@
         <div class="container px-5">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                 <div class="col-auto">
-                    <div class="small m-0">Copyright &copy; Your Website 2023</div>
+                    <div class="small m-0">Copyright &copy; Your Website {{ date('Y') }}</div>
                 </div>
                 <div class="col-auto">
                     <a class="small" href="#!">Privacy</a>

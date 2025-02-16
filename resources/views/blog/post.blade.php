@@ -1,8 +1,11 @@
 @extends('blog.master')
 
+@section('title', env('App_Name') . ' - Post')
+
+
 @section('content')
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+<header class="masthead" style="background-image: url('{{ asset('blog_assets/assets/img/post-bg.jpg') }}')">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -58,7 +61,8 @@
                     of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so
                     fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing
                     this has to change a man.</p>
-                <a href="#!"><img class="img-fluid" src="assets/img/post-sample-image.jpg" alt="..." /></a>
+                <a href="#!"><img class="img-fluid" src="{{ asset('blog_assets/assets/img/post-sample-image.jpg') }}"
+                        alt="..." /></a>
                 <span class="caption text-muted">To go places and do things that have never been done before – that’s
                     what living is all about.</span>
                 <p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission:

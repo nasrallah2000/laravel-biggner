@@ -15,16 +15,18 @@
             @csrf
             <div class="mb-5">
                 <label for="">Name</label>
-                <input type="text" placeholder="Name" class="form-control">
+                <input type="text" placeholder="Name" class="form-control" name="name">
             </div>
+
             <div class="mb-5">
                 <label for="">Email</label>
-                <input type="email" placeholder="Email" class="form-control">
+                <input type="email" placeholder="Email" class="form-control" name="email">
             </div>
             <button class="btn btn-success">Send</button>
         </form>
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

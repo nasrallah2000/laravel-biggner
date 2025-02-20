@@ -87,8 +87,8 @@ Route::prefix('blog')->name('blog.')->group(function () {
 
 ////////////////////// Form Site ////////////////////
 
-Route::get('/form1',[FormController::class,'form1'])->name('form1');
-Route::post('/form1',[FormController::class,'form1_data'])->name('form1_data');
+Route::get('/form1', [FormController::class, 'form1'])->name('form1');
+Route::post('/form1', [FormController::class, 'form1_data'])->name('form1_data');
 
 
 

@@ -26,5 +26,11 @@ class FormController extends Controller
     function user(){
         return view('forms.user');
     }
+
+    function user_data(Request $request){
+        $name = $request->name;
+        $age = $request->age;
+        return view('forms.user_info',compact("name","age"));
+    }
     //
 }

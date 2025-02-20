@@ -22,5 +22,9 @@ class FormController extends Controller
         $name = $request->name;
         return "Name: $name <br> Email: $email";
     }
+
+    function user(){
+        return view('forms.user');
+    }
     //
 }

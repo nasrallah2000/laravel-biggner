@@ -64,7 +64,7 @@ use App\Http\Controllers\ProductController;
 
 // Send data between pages///
 
-Route::get('user/{name}/{age}', [MainController::class, 'user'])->name('user.profile');
+// Route::get('user/{name}/{age}', [MainController::class, 'user'])->name('user.profile');
 
 ////////////////////// Personal Site ////////////////////
 Route::prefix('personal')->name('personal.')->group(function () {
@@ -90,6 +90,7 @@ Route::prefix('blog')->name('blog.')->group(function () {
 Route::get('/form1', [FormController::class, 'form1'])->name('form1');
 Route::post('/form1', [FormController::class, 'form1_data'])->name('form1_data');
 
+Route::get('user',[FormController::class,'user'])->name('user');
 
 
 //

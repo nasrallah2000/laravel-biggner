@@ -47,5 +47,23 @@ class FormController extends Controller
         dd($request->all());
         // eturn view('forms.form2_data');
     }
+
+    function form3(){
+        return view('forms.form3');
+    }
+    function form3_data(Request $request) {
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'dob'=>'required|before:-18 years',
+            'gender'=>'required',
+            'bio'=>'required',
+            'education_level'=>'required',
+            'hobbies'=>'required',
+        ],[
+            'name.required'=>'الحقل مطلووب'
+        ]);
+        dd($request->all());
+    }
     //
 }

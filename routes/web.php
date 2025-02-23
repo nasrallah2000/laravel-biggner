@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\MainController;
-use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PersonalController;
 
 
 // The Type Of routes method
@@ -102,5 +103,9 @@ Route::post('form3',[FormController::class,'form3_data'])->name('form3_data');
 
 Route::get('form4',[FormController::class,'form4'])->name('form4');
 Route::post('form4',[FormController::class,'form4_data'])->name('form4_data');
+
+Route::get('email',[EmailController::class,'email'])->name('email');
+Route::post('email',[EmailController::class,'email_data'])->name('email_data');
+
 
 //

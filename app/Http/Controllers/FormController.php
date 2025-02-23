@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Rules\WordCountRule;
 use Illuminate\Http\Request;
 
 class FormController extends Controller
@@ -57,7 +58,7 @@ class FormController extends Controller
             'email'=>'required',
             'dob'=>'required|before:-18 years',
             'gender'=>'required',
-            'bio'=>'required',
+            'bio'=>['required',new WordCountRule(10)],
             'education_level'=>'required',
             'hobbies'=>'required',
         ],[

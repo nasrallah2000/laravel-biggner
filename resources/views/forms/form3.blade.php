@@ -73,7 +73,6 @@
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
-            @dump(old('hobbies'))
             <div class="mb-3">
                 <label>Hobbies</label><br>
                 <label><input type="checkbox" name="hobbies[]" value="Swimming"

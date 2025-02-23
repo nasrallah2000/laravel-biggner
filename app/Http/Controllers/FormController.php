@@ -66,5 +66,28 @@ class FormController extends Controller
         ]);
         dd($request->all());
     }
+
+    function form4(){
+        return view('forms.form4');
+    }
+    function form4_data(Request $request){
+        $request->validate([
+            'name'=>'required',
+            'image'=>['required'],
+        ]);
+    //   $imgname= rand().time(). $request->file('image')->getClientOriginalName();
+    $ex = $request->file('image')->getClientOriginalExtension();
+    $imgname = rand().rand().'_'.rand().rand().rand().'_'.rand().rand().'.'.$ex;
+    $request->file('image')->move(public_path('images'),$imgname);
+    return "File uploaded successfully";
+        // dd($request->all());
+    }
+
+    public function someFunction()
+{
+    // Do something that causes an error
+    session()->flash('error', 'This is an error message.');
+    return redirect()->back();
+}
     //
 }

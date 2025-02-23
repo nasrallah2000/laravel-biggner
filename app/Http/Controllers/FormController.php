@@ -75,13 +75,23 @@ class FormController extends Controller
             'name'=>'required',
             'image'=>['required'],
         ]);
+
     //   $imgname= rand().time(). $request->file('image')->getClientOriginalName();
-    $ex = $request->file('image')->getClientOriginalExtension();
-    $imgname = rand().rand().'_'.rand().rand().rand().'_'.rand().rand().'.'.$ex;
-    $request->file('image')->move(public_path('images'),$imgname);
-    return "File uploaded successfully";
-        // dd($request->all());
+    // for one image or one file
+    $foldername = date('m');
+    // $ex = $request->file('image')->getClientOriginalExtension();
+    // $imgname = rand().rand().'_'.rand().rand().rand().'_'.rand().rand().'.'.$ex;
+    // $request->file('image')->move(public_path('images/').$foldername,$imgname);
+
+    // for multiple images or files
+    foreach($request->image as $img){
+        $ex = $img->getClientOriginalExtension();
+        $imgname = rand().rand().'_'.rand().rand().rand().'_'.rand().rand().'.'.$ex;
+        $img->move(public_path('images/').$foldername,$imgname);
     }
+    // dd($request->all());
+
+}
 
     public function someFunction()
 {

@@ -47,7 +47,7 @@
             </div>
             <div class="mb-3">
                 <label>Image</label>
-                <input type="file" name="image" class="form-control @error('name') is-invalid @enderror"
+                <input type="file" multiple name="image[]" class="form-control @error('name') is-invalid @enderror"
                     value="{{ old('image') }}">
                 @error('image')
                 <small class="text-danger">{{ $message }}</small>

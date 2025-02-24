@@ -49,13 +49,11 @@ class ContactMail extends Mailable
      */
     public function attachments(): array
     {
-        $image = '';
-        if (isset($this->data['image']) && !empty($this->data['image'])) {
-            $image = public_path('images/' . $this->data['image']);
-        }
+
 
         return [
-            $image
+            public_path('images/' . $this->data['image']),
+
         ];
     }
 }

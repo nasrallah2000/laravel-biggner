@@ -16,9 +16,10 @@ class ContactMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public $data ;
+    public function __construct($data)
     {
-        //
+    $this->data = $data;
     }
 
     /**
@@ -27,7 +28,7 @@ class ContactMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Contact Mail',
+            subject: 'Contact Mail |'. $this->data['subject'],
         );
     }
 
@@ -37,7 +38,7 @@ class ContactMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.contact',
         );
     }
 
@@ -48,6 +49,13 @@ class ContactMail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        $image = '';
+        if (isset($this->data['image']) && !empty($this->data['image'])) {
+            $image = public_path('images/' . $this->data['image']);
+        }
+
+        return [
+            $image
+        ];
     }
 }

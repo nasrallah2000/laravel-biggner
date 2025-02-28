@@ -16,12 +16,12 @@ return new class extends Migration
         // migrate:status يعرض الجداول وهل اشتغلت وفي اي مرحلة انشات
         // migrate:rollback يتراجع عن اخر رفع للجداول
         // migrate:reset يتراجع عن جميع الرفع
-        
+
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('image');
-            $table->string('content');
+            $table->text('content');
             $table->double('price',10,3);
             $table->integer('hours');
             $table->boolean('status')->default(0);

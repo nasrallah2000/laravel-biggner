@@ -6,6 +6,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PersonalController;
@@ -106,6 +107,20 @@ Route::post('form4',[FormController::class,'form4_data'])->name('form4_data');
 
 Route::get('email',[EmailController::class,'email'])->name('email');
 Route::post('email',[EmailController::class,'email_data'])->name('email_data');
+
+///// Course All Route (CRUD)
+
+// Route::prefix('courses')->name('courses.')->group(function () {
+//     Route::get('/',[CourseController::class,'index'])->name('indedx');
+//     Route::get('/{course}',[CourseController::class,'show'])->name('show');
+//     Route::get('/create_course',[CourseController::class,'create_course'])->name('create_course');
+//     Route::post('/create_course',[CourseController::class,'store_course'])->name('store_course');
+//     Route::get('/{course}/edit',[CourseController::class,'edit'])->name('edit');
+//     Route::match(['put','patch'],'/{course}',[CourseController::class,'update'])->name('update');
+//     Route::delete('/{course}',[CourseController::class,'destroy'])->name('destroy');
+// });
+
+Route::resource('courses', CourseController::class);
 
 
 //

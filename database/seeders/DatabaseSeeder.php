@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Course;
+use Illuminate\Database\Seeder;
+use Database\Seeders\CourseSeeder;
+use Database\Seeders\CategorySeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,13 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Course::factory(100)->create();
+        // $this->call(CourseSeeder::class);
+        $this->call(CategorySeeder::class);
+        // Course::factory(100)->create();
 
-        // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

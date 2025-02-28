@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Course;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class CourseSeeder extends Seeder
+class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Course::factory(100)->create();
+        Category::factory(50)->create();
     }
 }

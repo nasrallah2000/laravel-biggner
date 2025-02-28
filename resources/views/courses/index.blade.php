@@ -16,16 +16,20 @@
         </tr>
         @foreach ($courses as $course)
         <tr>
-            <td>$course['id']</td>
-            <td>Image</td>
-            <td>Name</td>
-            <td>Price</td>
-            <td>Hours</td>
-            <td>Created At</td>
-            <td>Updated At</td>
-            <td>Actions</td>
+            <td>{{ $course->id }}</td>
+            <td><img width="100"  src='{{ $course->image }}' alt=""></td>
+            <td>{{ $course->name }}</td>
+            <td>{{ $course->price }}</td>
+            <td>{{ $course->hours }}</td>
+            <td>{{ $course->created_at }}</td>
+            <td>{{ $course->updated_at }}</td>
+            <td>
+                <a href="" class="btn btn-success">Edit</a>
+                <a href="" class="btn btn-danger">Delete</a>
+            </td>
         </tr>
         @endforeach
     </table>
+    {{ $courses->links() }}
 </div>
 @endsection

@@ -10,10 +10,17 @@ class CourseController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         // $courses = Course::all();
-        $courses = Course::paginate(10);
+        $column  = 'id';
+        $type = 'asc';
+
+        if($request->has('column')){
+            $column = $request->column;
+            $type = $request->type;
+        }
+        $courses = Course::orderBy($column,$type)->paginate(10);
         return view('courses.index',compact('courses'));
     }
 

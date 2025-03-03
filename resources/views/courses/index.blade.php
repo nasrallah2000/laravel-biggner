@@ -29,6 +29,7 @@
             <th>Name</th>
             <th>Price</th>
             <th>Hours</th>
+            <th>Status</th>
             <th>Created At</th>
             <th>Updated At</th>
             <th>Actions</th>
@@ -40,8 +41,10 @@
             <td>{{ $course->name }}</td>
             <td>{{ $course->price }}</td>
             <td>{{ $course->hours }}</td>
-            <td>{{ $course->created_at }}</td>
-            <td>{{ $course->updated_at }}</td>
+            <td>{!! $course->status ? '<span class="badge bg-success">Opened</span>' : '<span
+                    class="badge bg-danger">Closed</span>' !!}</td>
+            <td>{{ $course->created_at->format('M d , Y') }}</td>
+            <td>{{ $course->updated_at->diffForHumans() }}</td>
             <td>
                 <a href="" class="btn btn-success">Edit</a>
                 <a href="" class="btn btn-danger">Delete</a>
@@ -49,6 +52,6 @@
         </tr>
         @endforeach
     </table>
-    {{ $courses->links() }}
+    {{ $courses->appends($_GET)->links() }}
 </div>
 @endsection

@@ -18,6 +18,9 @@ class CourseController extends Controller
 
         if($request->has('column')){
             $column = $request->column;
+            if(!in_array($column,['id','name','price','created_at'])){
+                $column  = 'id';
+            }
             $type = $request->type;
         }
         $courses = Course::orderBy($column,$type)->paginate(10);

@@ -56,7 +56,12 @@
             <td>{{ $course->updated_at->diffForHumans() }}</td>
             <td>
                 <a href="" class="btn btn-success">Edit</a>
-                <a href="" class="btn btn-danger">Delete</a>
+                {{-- <a href="" class="btn btn-danger">Delete</a> --}}
+                <form  class="d-inline" action="{{ route('courses.destroy',$course->id) }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button onclick="return confirm('Are you sure you want to delete this item?')" class="btn btn-danger" >Delete</button>
+                </form>
             </td>
         </tr>
         @endforeach

@@ -52,7 +52,7 @@ class CourseController extends Controller
      */
     public function show(string $course)
     {
-        return view('courses.show_course',compact('course'));
+        // return view('courses.show_course',compact('course'));
     }
 
     /**
@@ -76,6 +76,7 @@ class CourseController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Course::destroy($id);
+        return redirect()->route('courses.index');
     }
 }

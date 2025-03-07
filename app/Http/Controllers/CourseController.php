@@ -23,7 +23,11 @@ class CourseController extends Controller
             }
             $type = $request->type;
         }
-        $courses = Course::orderBy($column,$type)->paginate(10);
+        if($request->has('q') && !empty($request->q)){
+            $courses = Course::orderBy($column,$type)->where('name','like','%'.$request->q.'%')->paginate(10);
+        }else{
+            $courses = Course::orderBy($column,$type)->paginate(10);
+        }
         return view('courses.index',compact('courses'));
     }
 

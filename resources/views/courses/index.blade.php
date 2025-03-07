@@ -3,25 +3,34 @@
 @section('content')
 <div class="container py-5 ">
     <h1 class="text-center mb-4">All Courses</h1>
-    <div class="d-flex align-items-center my-3">
-        <p class="m-0">Sort By</p>
-        <form class="mx-2 d-flex" action="{{ route('courses.index') }}" method="GET">
-            @if (request()->has('page'))
-            <input type="hidden" name="page" value="{{ request()->page }}">
-            @endif
-            <select name="column" class="form-select">
-                <option value="id" @selected(request()->column == 'id')>ID</option>
-                <option value="name" @selected(request()->column == 'name')>Name</option>
-                <option value="price" @selected(request()->column == 'price')>Price</option>
-                <option value="created_at" @selected(request()->column == 'created_at')>Created At</option>
-            </select>
-            <select name="type" class="form-select mx-2">
-                <option value="asc" @selected(request()->type == 'asc')>ASC</option>
-                <option value="desc" @selected(request()->type == 'desc')>DESC</option>
-            </select>
-            <button class="btn btn-dark">Sort</button>
-        </form>
-    </div>
+    <form class="mx-2" action="{{ route('courses.index') }}" method="GET">
+        @if (request()->has('page'))
+        <input type="hidden" name="page" value="{{ request()->page }}">
+        @endif
+        <div class="row">
+            <div class="col-8">
+                <input type="text" value="{{request()->q}}" name="q" placeholder="Search About Any Course..."
+                    class="form-control">
+            </div>
+            <div class=" col-3">
+                <div class="d-flex align-items-center mb-2">
+                    <select name="column" class="form-select w-50">
+                        <option value="id" @selected(request()->column == 'id')>ID</option>
+                        <option value="name" @selected(request()->column == 'name')>Name</option>
+                        <option value="price" @selected(request()->column == 'price')>Price</option>
+                        <option value="created_at" @selected(request()->column == 'created_at')>Created At</option>
+                    </select>
+                    <select name="type" class="form-select mx-2 w-50">
+                        <option value="asc" @selected(request()->type == 'asc')>ASC</option>
+                        <option value="desc" @selected(request()->type == 'desc')>DESC</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-1">
+                <button class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
     <table class="table table-bordered table-hover table-striped ">
         <tr class="table-dark">
             <th>ID</th>

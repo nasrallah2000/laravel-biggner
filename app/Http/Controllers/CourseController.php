@@ -91,4 +91,11 @@ class CourseController extends Controller
         Course::onlyTrashed()->find($id)->restore();
         return redirect()->route('courses.index');
     }
+
+    function forcedelete($id)
+    {
+        Course::onlyTrashed()->find($id)->forcedelete();
+        return redirect()->back();
+        // return redirect()->route('courses.index');
+    }
 }

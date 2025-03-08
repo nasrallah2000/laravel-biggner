@@ -20,11 +20,11 @@
             <td>
                 <a href="{{ route('courses.restore',$course->id) }}" class="btn btn-success">Restore</a>
                 {{-- <a href="" class="btn btn-danger">Delete</a> --}}
-                <form class="d-inline" action="{{ route('courses.destroy',$course->id) }}" method="POST">
+                <form class="d-inline" action="{{ route('courses.forcedelete',$course->id) }}" method="POST">
                     @csrf
                     @method('delete')
-                    <button onclick="return confirm('Are you sure you want to delete this item?')"
-                        class="btn btn-danger">Delete</button>
+                    <button onclick="return confirm('Are you sure you want to delete this item? (You can\'t rollback)')"
+                        class="btn btn-danger">Force Delete</button>
                 </form>
             </td>
         </tr>

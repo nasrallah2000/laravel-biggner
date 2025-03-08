@@ -3,6 +3,7 @@
 @section('content')
 <div class="container py-5 ">
     <h1 class="text-center mb-4">All Courses</h1>
+    <a href="{{ route('courses.trash') }}" class="btn btn-danger mb-3">Trash Courses</a>
     <form class="mx-2" action="{{ route('courses.index') }}" method="GET">
         @if (request()->has('page'))
         <input type="hidden" name="page" value="{{ request()->page }}">
@@ -57,10 +58,11 @@
             <td>
                 <a href="" class="btn btn-success">Edit</a>
                 {{-- <a href="" class="btn btn-danger">Delete</a> --}}
-                <form  class="d-inline" action="{{ route('courses.destroy',$course->id) }}" method="POST">
+                <form class="d-inline" action="{{ route('courses.destroy',$course->id) }}" method="POST">
                     @csrf
                     @method('delete')
-                    <button onclick="return confirm('Are you sure you want to delete this item?')" class="btn btn-danger" >Delete</button>
+                    <button onclick="return confirm('Are you sure you want to delete this item?')"
+                        class="btn btn-danger">Delete</button>
                 </form>
             </td>
         </tr>

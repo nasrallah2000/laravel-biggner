@@ -16,19 +16,19 @@ class CourseController extends Controller
         $column  = 'id';
         $type = 'asc';
 
-        if($request->has('column')){
+        if ($request->has('column')) {
             $column = $request->column;
-            if(!in_array($column,['id','name','price','created_at'])){
+            if (!in_array($column, ['id', 'name', 'price', 'created_at'])) {
                 $column  = 'id';
             }
             $type = $request->type;
         }
-        if($request->has('q') && !empty($request->q)){
-            $courses = Course::orderBy($column,$type)->where('name','like','%'.$request->q.'%')->paginate(10);
-        }else{
-            $courses = Course::orderBy($column,$type)->paginate(10);
+        if ($request->has('q') && !empty($request->q)) {
+            $courses = Course::orderBy($column, $type)->where('name', 'like', '%' . $request->q . '%')->paginate(10);
+        } else {
+            $courses = Course::orderBy($column, $type)->paginate(10);
         }
-        return view('courses.index',compact('courses'));
+        return view('courses.index', compact('courses'));
     }
 
     /**
@@ -77,6 +77,18 @@ class CourseController extends Controller
     public function destroy(string $id)
     {
         Course::destroy($id);
+        return redirect()->route('courses.index');
+    }
+
+    function trash()
+    {
+        $courses = Course::onlyTrashed()->latest('deleted_at')->paginate(10);
+        return view('courses.trash', compact('courses'));
+    }
+
+    function restore($id)
+    {
+        Course::onlyTrashed()->find($id)->restore();
         return redirect()->route('courses.index');
     }
 }

@@ -34,17 +34,56 @@ class CourseController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create_course()
+    public function create()
     {
-        //
+        return view('courses.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store_course(Request $request)
+    public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        // validate
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required|image',
+            'content' => 'required',
+            'price' => 'required|numeric',
+            'hours' => 'required|numeric',
+        ]);
+
+        // upload files
+        $img_name = time() . rand() . $request->file('image')->getClientOriginalName();
+        $request->file('image')->move(public_path('images'), $img_name);
+        // store in database
+        // 1- Using Model Object
+        // $course = new Course();
+        // $course->name = $request->name;
+        // $course->image = $img_name;
+        // $course->content = $request->content;
+        // $course->price = $request->price;
+        // $course->hours = $request->hours;
+        // $course->save();
+
+        // 2- Using Model Method
+        $data = $request->except('_token', 'image');
+        $data['image'] = $img_name;
+        Course::create($data);
+        // Course::create([
+        //     'name' => $request->name,
+        //     'image' => $img_name,
+        //     'content' => $request->content,
+        //     'price' => $request->price,
+        //     'hours' => $request->hours
+        // ]);
+
+
+        // redirect to another route
+        return redirect()
+            ->route('courses.index')
+            ->with('msg', 'Course Created Successfully');
     }
 
     /**

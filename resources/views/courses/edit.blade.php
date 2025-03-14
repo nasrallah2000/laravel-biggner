@@ -4,13 +4,13 @@
 <div class="container py-5 ">
     <h1 class="text-center mb-4">Edit {{ $course->name }} Course</h1>
     <a href="{{ route('courses.index') }}" class="btn btn-primary mb-3">All Courses</a>
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('courses.update',$course->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="mb-3">
             <label>Name</label>
             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                value="{{ $course->name }}">
+                value="{{ old('name',$course->name) }}">
             @error('name')
             <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -27,7 +27,7 @@
         <div class="mb-3">
             <label>Content</label>
             <textarea name="content" rows="4" class="form-control @error('content') is-invalid @enderror">
-                {{ $course->content }}
+                {{ old('content',$course->content) }}
             </textarea>
             @error('content')
             <small class="text-danger">{{ $message }}</small>
@@ -36,7 +36,7 @@
         <div class="mb-3">
             <label>Price</label>
             <input type="number" name="price" class="form-control @error('price') is-invalid @enderror"
-                value="{{  $course->price }}">
+                value="{{  old('price',$course->price) }}">
             @error('price')
             <small class="text-danger">{{ $message }}</small>
             @enderror
@@ -44,12 +44,12 @@
         <div class="mb-3">
             <label>Hours</label>
             <input type="number" name="hours" class="form-control @error('hours') is-invalid @enderror"
-                value="{{ $course->hours }}">
+                value="{{ old('hours',$course->hours) }}">
             @error('hours')
             <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
-        <button class="btn btn-success">Save</button>
+        <button class="btn btn-info">Update</button>
     </form>
 
 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class CourseController extends Controller
 {
@@ -115,11 +116,32 @@ class CourseController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image' => 'required|image',
+            'image' => 'nullable|image',
             'content' => 'required',
             'price' => 'required|numeric',
             'hours' => 'required|numeric',
         ]);
+
+        // upload files
+        $course = Course::findOrFail($id);
+        $data = $request->except('_token', 'image');
+
+        if ($request->hasFile('image')) {
+            File::delete(public_path('images/' . $course->image));
+            $img_name = time() . rand() . $request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path('images'), $img_name);
+            $data['image'] = $img_name;
+        }
+
+        $course->update($data);
+
+
+
+        // redirect to another route
+        return redirect()
+            ->route('courses.index')
+            ->with('msg', 'Course Updated Successfully')
+            ->with('type', 'info');
     }
 
     /**
@@ -148,7 +170,9 @@ class CourseController extends Controller
 
     function forcedelete($id)
     {
-        Course::onlyTrashed()->find($id)->forcedelete();
+       $course = Course::onlyTrashed()->find($id);
+        File::delete(public_path('images/' . $course->image));
+        $course->forcedelete();
         return redirect()->back();
         // return redirect()->route('courses.index');
     }

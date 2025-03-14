@@ -66,7 +66,7 @@
             <td>{{ $course->created_at->format('M d , Y') }}</td>
             <td>{{ $course->updated_at->diffForHumans() }}</td>
             <td>
-                <a href="{{ route('courses.edit',$course) }}" class="btn btn-success">Edit</a>
+                <a href="{{ route('courses.edit',$course->id) }}" class="btn btn-success">Edit</a>
                 {{-- <a href="" class="btn btn-danger">Delete</a> --}}
                 <form class="d-inline" action="{{ route('courses.destroy',$course->id) }}" method="POST">
                     @csrf

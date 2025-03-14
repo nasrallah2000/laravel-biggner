@@ -100,7 +100,12 @@ class CourseController extends Controller
      */
     public function edit(string $id)
     {
-        return view('courses.edit');
+        // $course = Course::find($id);
+        // if(!$course){
+        //     abort('404');
+        // }
+        $course = Course::findOrFail($id);
+        return view('courses.edit', compact('course'));
     }
 
     /**
@@ -108,7 +113,13 @@ class CourseController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required|image',
+            'content' => 'required',
+            'price' => 'required|numeric',
+            'hours' => 'required|numeric',
+        ]);
     }
 
     /**

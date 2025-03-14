@@ -83,7 +83,8 @@ class CourseController extends Controller
         // redirect to another route
         return redirect()
             ->route('courses.index')
-            ->with('msg', 'Course Created Successfully');
+            ->with('msg', 'Course Created Successfully')
+            ->with('type', 'success');
     }
 
     /**
@@ -99,7 +100,7 @@ class CourseController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('courses.edit');
     }
 
     /**
@@ -116,7 +117,10 @@ class CourseController extends Controller
     public function destroy(string $id)
     {
         Course::destroy($id);
-        return redirect()->route('courses.index');
+        return redirect()
+            ->route('courses.index')
+            ->with('msg', 'Course deleted Successfully')
+            ->with('type', 'error');
     }
 
     function trash()

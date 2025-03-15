@@ -10,7 +10,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PersonalController;
-
+use App\Http\Controllers\RelationsController;
 
 // The Type Of routes method
 // Route::get('url','action'); الروابط المتعلقة بعرض صفحات الموقع
@@ -124,6 +124,12 @@ Route::get('courses/trash', [CourseController::class, 'trash'])->name('courses.t
 Route::get('courses/{course}/restore', [CourseController::class, 'restore'])->name('courses.restore');
 Route::delete('courses/{course}/forcedelete', [CourseController::class, 'forcedelete'])->name('courses.forcedelete');
 Route::resource('courses', CourseController::class);
+
+
+
+// Relations
+Route::get('users',[RelationsController::class,'users'])->name('relation.users');
+
 
 
 //

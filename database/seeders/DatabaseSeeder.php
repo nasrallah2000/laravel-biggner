@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Comment;
 use App\Models\Course;
+use App\Models\Post;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -22,7 +25,8 @@ class DatabaseSeeder extends Seeder
         // Course::factory(100)->create();
         // User::factory(10)->create();
         // Profile::factory(10)->create();
-
+        // Post::factory(10)->create();
+        // Comment::factory(10)->create();
 
     }
 }

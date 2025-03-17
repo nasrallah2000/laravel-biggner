@@ -25,4 +25,9 @@ class RelationsController extends Controller
         $posts = Post::with('user', 'comments')->withCount('comments')->latest('id')->paginate(12);
         return view('relations.posts', compact('posts'));
     }
+
+    function post_single($id) {
+        $post = Post::with('user', 'comments.user')->withCount('comments')->findOrFail($id);
+        return view('relations.post_single',compact('post'));
+    }
 }

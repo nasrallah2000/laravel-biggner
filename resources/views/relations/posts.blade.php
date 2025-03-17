@@ -31,9 +31,9 @@
                         <h5 class="card-title">{{ $post->title }}</h5>
                         <b><i class="fas fa-user"></i> {{ $post->user->name }}</b>
                         <br>
-                        <b><i class="fas fa-comments"></i> {{ $post->comments->count() }}</b>
+                        <b><a href="{{ route('relation.post_single',$post->id) }} #comments" ><i class="fas fa-comments"></i> {{ $post->comments->count() }} Comments</a></b>
                         <p class="card-text">{{ Str::words($post->body,10,'...') }}</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="{{ route('relation.post_single',$post->id) }}" class="btn btn-dark w-100">Read More</a>
                     </div>
                 </div>
             </div>

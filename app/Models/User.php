@@ -47,4 +47,8 @@ class User extends Authenticatable
             'fb' => '--',
         ]);
     }
+
+    // function post() {
+    //     return $this->hasMany(Post::class);
+    // }
 }

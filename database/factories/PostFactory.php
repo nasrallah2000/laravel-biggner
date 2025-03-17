@@ -17,9 +17,9 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'title'=> fake()-> word(2,true),
-            'image'=> fake()-> imageUrl(),
-            'body'=> fake()-> sentence(6,true),
+            'title'=> fake()-> word(5,true),
+            'image'=> 'https://dummyimage.com/800x400/000/fff',
+            'body'=> fake()-> sentence(20,true),
             'user_id'=> fake()-> numberBetween(1,10),
         ];
     }

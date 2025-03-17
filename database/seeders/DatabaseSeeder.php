@@ -23,10 +23,10 @@ class DatabaseSeeder extends Seeder
         // $this->call(CourseSeeder::class);
         // $this->call(CategorySeeder::class);
         // Course::factory(100)->create();
-        // User::factory(10)->create();
         // Profile::factory(10)->create();
-        // Post::factory(10)->create();
-        // Comment::factory(10)->create();
+        // User::factory(10)->create();
+        // Post::factory(20)->create();
+        // Comment::factory(100)->create();
 
     }
 }

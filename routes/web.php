@@ -131,6 +131,6 @@ Route::resource('courses', CourseController::class);
 Route::get('users',[RelationsController::class,'users'])->name('relation.users');
 Route::get('profile/{id}',[RelationsController::class,'profile'])->name('relation.profile');
 
-
+Route::get('posts',[RelationsController::class,'posts'])->name('relation.posts');
 
 //

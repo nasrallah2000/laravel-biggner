@@ -19,7 +19,7 @@ class CommentFactory extends Factory
         return [
             'content'=> fake()->sentences(5,true),
             'user_id'=> fake()->numberBetween(1,10),
-            'post_id'=> fake()->numberBetween(1,10),
+            'post_id'=> fake()->numberBetween(1,20),
 
         ];
     }

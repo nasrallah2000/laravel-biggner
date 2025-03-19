@@ -24,6 +24,9 @@
         <h1 class="text-center mb-4">{{ $post->title }}</h1>
         <img src="{{ $post->image }}" alt="...">
         <p class="mt-5">{{ $post->body }}</p>
+        @foreach ($post->tags as $tag)
+        <a href="{{ route('relation.related_post',$tag->id) }}" class="badge bg-dark">{{ $tag->name }}></a>
+        @endforeach
         <hr>
         <h4 id="comments">All Comments ({{ $post->comments_count }})</h4>
         <div class="text-start">

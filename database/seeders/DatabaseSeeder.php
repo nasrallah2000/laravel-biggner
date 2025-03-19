@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Models\Course;
 use App\Models\Post;
 use App\Models\Profile;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Database\Seeders\CourseSeeder;
@@ -27,6 +28,6 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
         // Post::factory(20)->create();
         // Comment::factory(100)->create();
-
+        // Tag::factory(100)->create();
     }
 }

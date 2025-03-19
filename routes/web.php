@@ -133,5 +133,6 @@ Route::get('profile/{id}',[RelationsController::class,'profile'])->name('relatio
 
 Route::get('posts',[RelationsController::class,'posts'])->name('relation.posts');
 Route::get('posts/{id}',[RelationsController::class,'post_single'])->name('relation.post_single');
+Route::get('related_posts/{id}',[RelationsController::class,'related_post'])->name('relation.related_post');
 
 //
